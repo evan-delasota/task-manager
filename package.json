@@ -19,6 +19,7 @@
   "homepage": "https://github.com/evan-delasota/task-manager#readme",
   "dependencies": {
     "mongodb": "^4.1.0",
-    "mongoose": "^5.13.7"
+    "mongoose": "^5.13.7",
+    "validator": "^13.6.0"
   }
 }
