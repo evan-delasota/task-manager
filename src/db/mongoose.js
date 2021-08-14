@@ -8,22 +8,22 @@ mongoose.connect(connectionURL, {
     useUnifiedTopology: true
 });
 
-const User = mongoose.model('User', {
-    name: {
+const Task = mongoose.model('Task', {
+    description: {
         type: String
-    },  
-    age: {
-        type: Number
+    },
+    completed: {
+        type: Boolean
     }
 });
 
-const me = new User({
-    name: 'Evan',
-    age: 26
+const task = new Task({
+    description: 'clean room',
+    completed: false
 });
 
-me.save().then(() => {
-    console.log(me);
+task.save().then(() =>{
+    console.log(task);
 }).catch((error) => {
     console.log(error);
-})
+});
