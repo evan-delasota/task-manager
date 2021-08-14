@@ -4,7 +4,8 @@ const connectionURL = 'mongodb://127.0.0.1:27017/task-manager-api';
 
 mongoose.connect(connectionURL, {
     useNewUrlParser: true,
-    useCreateIndex: true
+    useCreateIndex: true,
+    useUnifiedTopology: true
 });
 
 const User = mongoose.model('User', {
@@ -15,3 +16,14 @@ const User = mongoose.model('User', {
         type: Number
     }
 });
+
+const me = new User({
+    name: 'Evan',
+    age: 26
+});
+
+me.save().then(() => {
+    console.log(me);
+}).catch((error) => {
+    console.log(error);
+})
