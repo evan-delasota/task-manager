@@ -18,6 +18,27 @@ app.post('/users', (req, res) => {
     });
 });
 
+app.get('/users', (req, res) => {
+    User.find({}).then((users) => {
+        res.status(202).send(users);
+    }).catch((error) => {
+        res.status(500).send(error);
+    });
+});
+
+app.get('/users/:id', (req, res) => {
+    const id = req.params.id;
+
+    User.findById(id).then((user) => {
+        if (!user) {
+            return res.status(404).send();
+        }
+        res.status(202).send(user);
+    }).catch((error) => {
+        res.status(500).send(error);
+    });
+});
+
 app.post('/tasks', (req, res) => {
     const task = new Task(req.body);
 
@@ -27,6 +48,28 @@ app.post('/tasks', (req, res) => {
         res.status(400).send(error);
     });
 });
+
+app.get('/tasks', (req, res) => {
+    User.find({}).then((tasks) => {
+        res.status(202).send(tasks);
+    }).catch((error) => {
+        res.status(500).send(error);
+    });
+});
+
+app.get('/tasks/:id', (req, res) => {
+    const id = req.params.id;
+    
+    User.findById(id).then((task) => {
+        if (!task) {
+            return res.status(404).send();
+        }
+        res.status(202).send(task);
+    }).catch((error) => {
+        res.status(500).send(error);
+    });
+});
+
 
 app.listen(port, () => {
     console.log('Server is up on port' + port);
