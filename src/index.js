@@ -81,6 +81,7 @@ app.delete('/users/:id', async (req, res) => {
 
     try {
         const user = await User.findByIdAndDelete(id);
+        
         if (!user) {
             return res.status(404).send();
         }
@@ -90,6 +91,7 @@ app.delete('/users/:id', async (req, res) => {
         res.status(400).send(error);
     }
 });
+
 // Task CRUD methods
 //
 app.post('/tasks', async (req, res) => {
@@ -164,6 +166,7 @@ app.delete('/tasks/:id', async (req, res) => {
 
     try {
         const task = await User.findByIdAndDelete(id);
+
         if (!task) {
             return res.status(404).send();
         }
