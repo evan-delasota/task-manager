@@ -121,7 +121,7 @@ app.patch('/tasks/:id', async (req, res) => {
     const id = req.params.id;
     const requestedUpdate = req.body;
     const toBeUpdated = Object.keys(requestedUpdate);
-    const allowedUpdates = ['completed'];
+    const allowedUpdates = ['description', 'completed'];
     const isValidOperation = toBeUpdated.every((update) => {
         return allowedUpdates.includes(update);
     });
