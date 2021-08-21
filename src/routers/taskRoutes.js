@@ -1,7 +1,9 @@
 const express = require('express');
 const Task = require('../models/task');
 const router = new express.Router();
-
+//
+// Task CRUD methods
+//
 router.post('/tasks', async (req, res) => {
     const task = new Task(req.body);
 
@@ -64,7 +66,7 @@ router.patch('/tasks/:id', async (req, res) => {
 
         res.send(task);
     } catch (error) {
-        res.status(400).send(error):
+        res.status(400).send(error);
     }
 
 });
